@@ -1,8 +1,8 @@
 
 ## lưu vào 1 thư mục 
-'''python
+```python
 %cd /content/drive/MyDrive/ObjectDetection
-'''
+```
 ## giải nén file data
 !unzip /content/drive/MyDrive/cars_yolo_data.zip
 
