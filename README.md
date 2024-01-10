@@ -1,27 +1,27 @@
 
-# lưu vào 1 thư mục 
+## lưu vào 1 thư mục 
 %cd /content/drive/MyDrive/ObjectDetection
 
-# giải nén file data
+## giải nén file data
 !unzip /content/drive/MyDrive/cars_yolo_data.zip
 
-# cài đặt thư viện ultralytics để sử dụng yolov8
+## cài đặt thư viện ultralytics để sử dụng yolov8
 %pip install ultralytics
 import ultralytics
 ultralytics.checks()
 
-# import thư viện
+## import thư viện
 import os
 import cv2
 import json
 import matplotlib.pyplot as plt
 from ultralytics import YOLO
 
-# Load a model ở đây use model đã được train từ trc 
+## Load a model ở đây use model đã được train từ trc 
 yolo_yaml_path = '/content/drive/MyDrive/ObjectDetection/yolo_data/data.yml'
 model = YOLO('yolov8s.yaml').load('/content/drive/MyDrive/ObjectDetection/models/yolov8/detect/train3/weights/best.pt')
 
-# Train the model
+## Train the model
 epochs = 25
 imgsz = 640
 batch_size = 8
@@ -40,7 +40,7 @@ results = model.train(
 
 
 
-# evaluate model arcording to mAP50, mAP50-95 > 0.5 là ổn
+## evaluate model arcording to mAP50, mAP50-95 > 0.5 là ổn
 from ultralytics import YOLO
 model_path = '/content/drive/MyDrive/ObjectDetection/models/yolov8/detect/train3/weights/best.pt'
 model = YOLO(model_path)
@@ -50,7 +50,7 @@ metrics = model.val(
 )
 
 
-# bounding box
+## bounding box
 def visualize_bbox(
     img_path, predictions,
     conf_thres=0.8,
@@ -76,7 +76,7 @@ def visualize_bbox(
         cv2.putText(img, text, (xmin, ymin - 5), font, 1, (0, 0, 0), 2)
     return img
 
-# predict 1 album
+## predict 1 album
 from ultralytics import YOLO
 model_path = '/content/drive/MyDrive/ObjectDetection/models/yolov8/detect/train3/weights/best.pt'
 test_img_dir = '/content/drive/MyDrive/ObjectDetection/yolo_data/val/images'
