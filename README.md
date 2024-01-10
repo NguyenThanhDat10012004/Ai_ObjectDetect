@@ -1,7 +1,8 @@
 
 ## lưu vào 1 thư mục 
+'''python
 %cd /content/drive/MyDrive/ObjectDetection
-
+'''
 ## giải nén file data
 !unzip /content/drive/MyDrive/cars_yolo_data.zip
 
@@ -71,7 +72,6 @@ def visualize_bbox(
         cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0, 255, 0), 3)
         text = f"{conf_score:.2f}"
         (text_width, text_height), _ = cv2.getTextSize(text, font, 1, 2)
-
         cv2.rectangle(img, (xmin, ymin - text_height - 5), (xmin + text_width, ymin), (0, 255, 0), -1)
         cv2.putText(img, text, (xmin, ymin - 5), font, 1, (0, 0, 0), 2)
     return img
