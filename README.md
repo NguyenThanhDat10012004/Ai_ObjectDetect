@@ -96,6 +96,9 @@ for img_name in os.listdir(test_img_dir):
     plt.imshow(visualized_img)
     plt.axis('off')
     plt.show()
+```
+## predict 1 ảnh 
+```python
 model = "/content/drive/MyDrive/ObjectDetection/models/yolov8/detect/train3/weights/best.pt"
 test_img = "/content/test_img.jpg"
 model = YOLO(model)
